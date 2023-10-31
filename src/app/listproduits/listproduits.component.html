@@ -3,28 +3,35 @@
 <input type="text" placeholder="search by code" />
 <div
   class="border m-2"
-  *ngFor="let f of list; index as i"
-  [ngClass]="f.prixUnitaire <= 50 ? 'text-primary fst-italic     fs-2s' : ''"
+  *ngFor="let f of ListProduct; index as i"
+  [ngClass]="f.prixunitaire <= 50 ? 'text-primary fst-italic     fs-2s' : ''"
 >
   <ul>
     <p>
       {{ i }} .Produit:produit {{ i }}
       <button
-        [disabled]="f && f.tauxTVA == 0.02"
+        [disabled]="f && f.tauxTva == 0.02"
         (click)="AjusterTVA(i)"
         type="button"
         class="btn btn-danger"
       >
         Ajuster TVA
       </button>
+      <button
+        (click)="NbProductsByLibelle(f.libelle)"
+        type="button"
+        class="btn btn-primary"
+      >
+        nb product
+      </button>
     </p>
-    <li>idProduit :{{ f.idProduit }}</li>
+    <li>idProduit :{{ f.id }}</li>
 
     <li>code :{{ f.code }}</li>
 
     <li>libelle :{{ f.libelle }}</li>
-    <li>prixUnitaire :{{ f.prixUnitaire }}</li>
-    <li>tauxTVA :{{ f.tauxTVA }}</li>
+    <li>prixUnitaire :{{ f.prixunitaire }}</li>
+    <li>tauxTVA :{{ f.tauxTva }}</li>
   </ul>
 </div>
 <div class="container border">
@@ -37,7 +44,7 @@
   <input class="form-control" type="text" />
   <label>prixUnitaire</label>
   <input class="form-control" type="number" />
-  <label>tauxTVA</label>
+  <label>tauxTva</label>
   <input class="form-control" type="float" />
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <button class="btn btn-primary me-md-2" type="button">Ajouter</button>

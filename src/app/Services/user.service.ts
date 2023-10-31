@@ -1,12 +1,10 @@
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { User } from '../Models/user';
 
-@Component({
-  selector: 'app-list-user-component',
-  templateUrl: './list-user-component.component.html',
-  styleUrls: ['./list-user-component.component.css'],
+@Injectable({
+  providedIn: 'root',
 })
-export class ListUserComponentComponent {
+export class UserService {
   list: User[] = [
     {
       idCustomer: 1,
@@ -64,7 +62,6 @@ export class ListUserComponentComponent {
       profession: 'Software Engineer',
     },
   ];
-  deleteUser(index: number) {
-    this.list.splice(index, 1);
-  }
+
+  constructor() {}
 }

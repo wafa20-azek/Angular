@@ -5,15 +5,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
-import { ListUserComponentComponent } from './list-user-component/list-user-component.component';
 import { MyDirectiveDirective } from './my-directive.directive';
 import { ListfournisseurComponent } from './listfournisseur/listfournisseur.component';
 import { ListproduitsComponent } from './listproduits/listproduits.component';
 import { FournisseurComponent } from './fournisseur/fournisseur.component';
+import { HomeComponent } from './home/home.component';
+
+import { UserModule } from './user/user.module';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, ListUserComponentComponent, MyDirectiveDirective, ListfournisseurComponent, ListproduitsComponent, FournisseurComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+
+    MyDirectiveDirective,
+    ListfournisseurComponent,
+    ListproduitsComponent,
+    FournisseurComponent,
+    HomeComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, UserModule],
   providers: [],
   bootstrap: [AppComponent],
 })
